@@ -1,0 +1,8 @@
+.Counter-container{
+    background: rgb(250,25,33, 0.15);
+    border-radius: 10px;
+}
+.TodoCounter{
+    font-size: 24px;
+    text-align: center;
+}

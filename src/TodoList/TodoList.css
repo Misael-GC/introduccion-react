@@ -1,0 +1,10 @@
+section{
+    padding: 20px 10px 50px;
+    background: rgba(250,250,250,0.15);
+    border-radius: 20px;
+  }
+  ul {
+      margin: 0;
+      padding: 0 0 56px 0;
+      list-style: none;
+    }
