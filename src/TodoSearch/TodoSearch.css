@@ -46,3 +46,9 @@
   .Container-search:focus {
     outline-color: #61DAFA;
   }
+
+  .texto-extra{
+    position: absolute;
+    bottom: -50px;
+    left: 10px;
+  }
