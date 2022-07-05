@@ -1,10 +1,5 @@
 import React from "react";
-import { TodoCounter } from "./TodoCounter/index.js";
-import { TodoSearch } from "./TodoSearch";
-import { TodoList } from "./TodoList";
-import { TodoItem } from "./TodoItem";
-import { CreateTodoButton } from "./CreateTodoButton";
-// import './App.css';
+import { AppUI } from "./AppUI";
 
 const defaulttodos = [
   {text:'cortar cebolla', complete: true},
@@ -46,29 +41,15 @@ function App() {
    }
 
   return (
-    <React.Fragment>
-     <TodoCounter
-      total={totalTodos}
-      completed={completedTodos}
-     />
-    <TodoSearch
+    <AppUI
+      totalTodos={totalTodos}
+      completedTodos={completedTodos}
       searchValue={searchValue}
       setSearchValue={setSearchValue}
-    />
-    <TodoList>
-      {searchTodos.map(todo =>( //array searchedTodos 
-        <TodoItem
-        key={todo.text}
-        text={todo.text}
-        completed={todo.complete}
-        onComplete={()=> completeTodo(todo.text)} //le mandamos la propiedad
-        onDelete={()=>deleteTodo(todo.text)}
+      searchTodos={searchTodos}
+      completeTodo={completeTodo}
+      deleteTodo={deleteTodo}
         />
-      ))}
-    </TodoList> 
-     <CreateTodoButton/>
-    
-    </React.Fragment>
   );
 }
 
