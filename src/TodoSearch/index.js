@@ -1,8 +1,7 @@
 import React from "react";
 import './TodoSearch.css'
 
-function TodoSearch(){
-    const [ searchValue, setSearchValue ] = React.useState(''); //creamos nuestro estado y lo iniciamos con un string vacío
+function TodoSearch({ searchValue, setSearchValue }){
 
     const onSearchValueChange = (event)=>{
         console.log(event.target.value);
@@ -16,9 +15,8 @@ function TodoSearch(){
         placeholder="Filtro"
         value={searchValue} // el estado que vaya escribiendo el user será el nuevo initial
         onChange={onSearchValueChange}
-        />,
-        <i class="fa-solid fa-magnifying-glass"></i>,
-         <p className="texto-extra"> {searchValue} </p> {/*lo ponemos aquí para reafirmar */}
+        />
+        <i class="fa-solid fa-magnifying-glass"></i>
         </div>
     );
 }

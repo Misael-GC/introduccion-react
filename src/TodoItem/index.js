@@ -1,19 +1,13 @@
 import React from "react";
 import './TodoItem.css'
 
-function TodoItem(props){
-    const onCompleted = () => {
-        alert('Completado' + props.text);
-    };
-    const onDelete = () => {
-        alert('Delete' + props.text);
-    };
+function TodoItem(props){ //recibiremos la propiedad
 
     return(
         <li  className="TodoItem">
             <span
             className={`Icon Icon-check ${props.completed && 'Icon-check--active'}`}
-            onClick={onCompleted}
+            onClick={props.onComplete} //llamamos a la propiedad que recibimos en las propiedades -> App.js
             ><i class="fa-solid fa-circle-check"></i></span>
             <p
             className={`TodoItem-p ${props.completed && 'TodoItem-p--complete'}`}>
@@ -21,7 +15,7 @@ function TodoItem(props){
             </p>
             <span
             className="Icon Icon-delete"
-            onClick={onDelete}>
+            onClick={props.onDelete}>
             <i class="fa-solid fa-trash-can"></i> 
             </span>
         </li>
