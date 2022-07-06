@@ -5,9 +5,18 @@ import { TodoList } from "../TodoList/index.js";
 import { TodoItem } from "../TodoItem/index.js";
 import { CreateTodoButton } from "../CreateTodoButton/index.js";
 import { TodoContext } from "../TodoContext/index.js"; // No olvides importar a TodoContext
+import { Modal } from '../Modal/index.js';
 
 function AppUI() {
-  const { error, loading, searchTodos, completeTodo, deleteTodo } =
+  const { 
+    error, 
+    loading, 
+    searchTodos, 
+    completeTodo, 
+    deleteTodo,
+    openModal, //los llamamos
+    setOpenModal,
+   } =
     React.useContext(TodoContext);
   return (
     <React.Fragment>
@@ -28,7 +37,14 @@ function AppUI() {
           />
         ))}
       </TodoList>
-      <CreateTodoButton />
+      {!!openModal && ( //el open modal es true? si es que si pon esto
+        <Modal>
+        <p> {searchTodos[0]?.text} </p>  {/* paso 1*/}
+      </Modal>
+      )}
+      <CreateTodoButton 
+        setOpenModal={setOpenModal} //lo llamamos a botoon
+      />
     </React.Fragment>
   );
 }
