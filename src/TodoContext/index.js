@@ -30,6 +30,14 @@ function TodoProvider(props){
         })
       }
       
+      const addTodo = (text) => {//vamos a crear un nuevo objeto -> lista de todos
+        const newTodos = [...todos];
+        newTodos.push({ //enviaremos un new Todo
+          completed: false,
+          text,
+        })
+        saveTodos(newTodos);
+       }
     
        const completeTodo = (text) => { //nueva función de compliteTodos
         const todoIndex = todos.findIndex(todo => todo.text === text); //buscamos su posición que tenga el mismo texto
@@ -56,6 +64,7 @@ function TodoProvider(props){
       deleteTodo,
       openModal,
       setOpenModal,
+      addTodo,
     }}>
         {props.children}
     </TodoContext.Provider>
@@ -63,4 +72,4 @@ function TodoProvider(props){
 }
 
 
-export { TodoContext, TodoProvider };
+export { TodoContext, TodoProvider };  
