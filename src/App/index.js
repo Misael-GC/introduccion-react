@@ -1,24 +1,57 @@
 import React from "react";
 import { AppUI } from "./AppUI";
 
-// const defaulttodos = [
-//   {text:'cortar cebolla', complete: true},
-//   {text:'hablar con el prime', complete: false},
-//   {text:'salir con una chica', complete: false},
-// ];
+function useLocalStorage(itemName, initialValue){ 
+  const [error, setError] = React.useState(false);
+  const [loading, setLoading] = React.useState(true);
+  const [item , setItem] = React.useState(initialValue); //vamos a traer lo que tenemos en nuestros componentes
+
+  React.useEffect(()=>{
+    setTimeout(()=>{
+      try{
+        const localStorageItem = localStorage.getItem(itemName);
+      let parsedItem;
+
+      if(!localStorageItem){
+        localStorage.setItem(itemName, JSON.stringify(initialValue));
+        parsedItem = initialValue;
+      }else{
+        parsedItem = JSON.parse(localStorageItem);
+      }
+      setItem(parsedItem);
+      setLoading(false)
+      }catch(error){
+        setError(error);
+      }
+    },3000)
+  }, []);
+
+  const saveItem = (newItem)=>{
+    try{
+      const stringifiedItem = JSON.stringify(newItem);
+    localStorage.setItem(itemName, stringifiedItem);
+    setItem(newItem);
+    }catch(error){
+      setError(error);
+    }
+  };
+
+  return {
+    item,
+    saveItem,
+    loading,
+    error,
+  };
+}
 
 function App() {
-  const localStorageTodos = localStorage.getItem('TODOS_V1');
-  let parsedTodos;
+  const {
+    item: todos,
+    saveItem: saveTodos,
+    loading,
+    error,
+    } = useLocalStorage('TODOS_V1', []);
 
-  if(!localStorageTodos){
-    localStorage.setItem('TODOS_V1', JSON.stringify([]));
-    parsedTodos = [];
-  }else{
-    parsedTodos = JSON.parse(localStorageTodos);
-  }
-
-  const [todos, setTodos] = React.useState(parsedTodos);
   const [searchValue, setSearchValue] = React.useState('');
 
   const completedTodos = todos.filter(todo => !!todo.complete).length;
@@ -36,11 +69,7 @@ function App() {
       return todoText.includes(searchText);
     })
   }
-  const saveTodos = (newTodos)=>{
-    const stringifiedTodos = JSON.stringify(newTodos);
-    localStorage.setItem('TODOS_V1', stringifiedTodos);
-    setTodos(newTodos);
-  };
+  
 
    const completeTodo = (text) => { //nueva función de compliteTodos
     const todoIndex = todos.findIndex(todo => todo.text === text); //buscamos su posición que tenga el mismo texto
@@ -57,6 +86,8 @@ function App() {
 
   return (
     <AppUI
+      error={error}
+      loading={loading}
       totalTodos={totalTodos}
       completedTodos={completedTodos}
       searchValue={searchValue}
