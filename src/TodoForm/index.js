@@ -13,6 +13,7 @@ function TodoForm(){
     }
     const onSubmit = (event) =>{
         event.preventDefault();//ayuda a que el formulario no recargue la página 
+        if(newTodoValue.length <=0)return; //evitara que envies ToDos vacios
         addTodo(newTodoValue); //le enviamos nuestro nuevo texto
         setOpenModal(false) //cerrar el modal
     }

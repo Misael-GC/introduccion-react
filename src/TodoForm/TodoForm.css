@@ -31,6 +31,7 @@ form {
     width: calc(100%-25px);
     resize: vertical; /*aporte*/
     background: rgba(36, 34, 34, 0.699);
+    resize: vertical;
   }
   
   textarea::placeholder {
