@@ -14,5 +14,5 @@ body {
   position: relative;
   min-height: 100vh;
   max-width: 700px;
-  background: rgba(70, 76, 78, 0.15);
+  background: red;/*rgba(70, 76, 78, 0.15)*/
 }
