@@ -1,4 +1,32 @@
-# Getting Started with Create React App
+# ToDo Web App 
+## Introducción
+Aplicación de tareas, en este proyecto se usa la librería de React, aplicacion web interactiva para guardar tareas pendientes. Implementación de componentes, props, estilos CSS, estados y efectos de React. Implementa React Context, React Portals y almacenamiento con Local Storage.
+
+## Skills
+* Maquetación con React.js (Componentes, props y atributos).
+* Interacción ( Eventos: onClick, onChange).
+* Librería de Iconos Personalizados (Iconos en React: librerías).
+* LocalStorage (Almacenamiento)
+* Creación de custom hooks para el manejo de eventos
+* Loading skeletons
+* Estilos CSS, efectos de React
+* Maneja estados locales con React Hooks y globales con React Context.
+* Implementa React Context, React Portals y almacenamiento con Local Storage
+* Deploy
+
+### Link del proyecto: https://misael-gc.github.io/introduccion-react/
+![image](https://github.com/Misael-GC/introduccion-react/assets/102877993/50b9a551-00d8-4177-8e75-06b0e9d4cf51)
+
+### Herramientas
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+![Git](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub%20Pages-222222?style=for-the-badge&logo=GitHub%20Pages&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)
+
+## Getting Started with Create React App 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
